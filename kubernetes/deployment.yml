@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8stest-deploy
+  labels:
+    app: k8stest
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: k8stest
+  template:
+    metadata:
+      labels:
+        app: k8stest
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+        - name: k8stest-pod
+          image: cameroncai/k8stest:0.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

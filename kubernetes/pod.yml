@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-pod
+  labels:
+    app: k8stest
+spec:
+  containers:
+    - name: web-ctr
+      image: cameroncai/k8stest:0.0.1
+      ports:
+        - containerPort: 8080
