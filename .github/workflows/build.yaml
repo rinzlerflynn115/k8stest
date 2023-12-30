@@ -43,7 +43,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: cameroncai/k8stest
+          images: ${{ secrets.DOCKER_USERNAME }}/k8stest
 
       - name: Copy Files
         run:  cp build/libs/*.jar .
